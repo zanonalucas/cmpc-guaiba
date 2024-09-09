@@ -26,6 +26,7 @@ def get_token(base_uri_data):
     print("[*] Type your Metris user and password to create a new token")
     ac = AccountClient(base_uri_data)
     metris_token = ac.authenticate(username=getpass("Username: "), password=getpass("Password: "))['id']
+    print(metris_token)
     with open(constants.FILENAME_TOKEN, 'wb') as pickle_file:
         pickle.dump(metris_token, pickle_file, pickle.HIGHEST_PROTOCOL)
     
